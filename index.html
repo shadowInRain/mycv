@@ -12,10 +12,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
-    />
     <style>
       :root {
         --primary-dark: #0a192f;
@@ -25,7 +21,7 @@
         --neon-cyan: #00ffcc;
         --text-light: #e6f1ff;
         --text-gray: #8892b0;
-        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-bg: rgba(255, 255, 255, 0.03);
         --glass-border: rgba(255, 255, 255, 0.1);
       }
 
@@ -39,13 +35,42 @@
       body {
         background: var(--primary-dark);
         color: var(--text-light);
-        line-height: 1.6;
+        line-height: 1.8;
         overflow-x: hidden;
-        position: relative;
-        min-height: 100vh;
+        background-attachment: fixed;
       }
 
-      /* شبکه فیبر نوری در پس‌زمینه */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1rem 5%;
+        background: rgba(10, 25, 47, 0.85);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-gray);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--neon-blue);
+      }
+
       .fiber-network {
         position: fixed;
         top: 0;
@@ -53,873 +78,350 @@
         width: 100%;
         height: 100%;
         z-index: -1;
-        opacity: 0.3;
+        opacity: 0.15;
       }
 
       .fiber-line {
         position: absolute;
         background: linear-gradient(
-          90deg,
+          180deg,
           transparent,
           var(--neon-blue),
           transparent
         );
-        width: 2px;
-        height: 100%;
-        animation: lightFlow 3s linear infinite;
+        width: 1px;
+        height: 150px;
+        animation: rain 4s linear infinite;
       }
 
-      .fiber-line:nth-child(1) {
-        left: 10%;
-        animation-delay: 0s;
-      }
-      .fiber-line:nth-child(2) {
-        left: 30%;
-        animation-delay: 0.5s;
-      }
-      .fiber-line:nth-child(3) {
-        left: 50%;
-        animation-delay: 1s;
-      }
-      .fiber-line:nth-child(4) {
-        left: 70%;
-        animation-delay: 1.5s;
-      }
-      .fiber-line:nth-child(5) {
-        left: 90%;
-        animation-delay: 2s;
+      @keyframes rain {
+        0% {
+          transform: translateY(-200px);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
       }
 
-      /* هدر با نام نورانی */
+      /* بخش Hero */
       .hero {
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 2rem;
-        position: relative;
-      }
-
-      .hero-content {
         text-align: center;
-        z-index: 1;
-        max-width: 800px;
       }
 
       .neon-text {
-        font-size: 4.5rem;
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
         font-weight: 900;
         background: linear-gradient(
           45deg,
           var(--neon-blue),
-          var(--neon-purple),
-          var(--neon-cyan)
+          var(--neon-purple)
         );
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
         margin-bottom: 1rem;
-        animation: neonPulse 2s infinite;
       }
 
       .title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         color: var(--neon-cyan);
-        margin-bottom: 2rem;
-        opacity: 0.9;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
       }
 
       .subtitle {
-        font-size: 1.2rem;
+        max-width: 700px;
         color: var(--text-gray);
-        max-width: 600px;
         margin: 0 auto 3rem;
-        line-height: 1.8;
+        font-size: 1.1rem;
       }
 
-      /* دکمه‌های نئونی */
-      .cta-buttons {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .neon-btn {
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.8rem;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        background: rgba(0, 212, 255, 0.1);
-        border: 2px solid var(--neon-blue);
-        color: var(--neon-blue);
-      }
-
-      .neon-btn:hover {
-        background: var(--neon-blue);
-        color: var(--primary-dark);
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-      }
-
-      /* بخش‌های اصلی */
       section {
-        padding: 6rem 10%;
-        position: relative;
-      }
-
-      .section-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 3rem;
-      }
-
-      .section-icon {
-        font-size: 2.5rem;
-        color: var(--neon-purple);
+        padding: 80px 10%;
       }
 
       .section-title {
-        font-size: 2.5rem;
-        background: linear-gradient(45deg, var(--neon-cyan), var(--neon-blue));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        position: relative;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: var(--text-light);
       }
 
-      /* کارت‌های شیشه‌ای */
+      .section-title::after {
+        content: "";
+        height: 1px;
+        flex-grow: 1;
+        background: var(--glass-border);
+      }
+
       .glass-card {
         background: var(--glass-bg);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 2.5rem;
         border: 1px solid var(--glass-border);
-        transition: all 0.3s ease;
+        border-radius: 12px;
+        padding: 2rem;
+        transition: 0.4s;
         margin-bottom: 2rem;
       }
 
       .glass-card:hover {
         border-color: var(--neon-blue);
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-5px);
       }
 
-      .card-title {
-        color: var(--neon-cyan);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-      }
-
-      /* نمودارهای پیشرفت */
-      .progress-container {
-        margin: 2rem 0;
-      }
-
-      .progress-bar {
-        height: 8px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 4px;
-        overflow: hidden;
-        margin-bottom: 0.5rem;
-      }
-
-      .progress-fill {
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          var(--neon-purple),
-          var(--neon-blue)
-        );
-        border-radius: 4px;
-        transition: width 1.5s ease;
-      }
-
-      .progress-label {
-        display: flex;
-        justify-content: space-between;
-        color: var(--text-gray);
-        font-size: 0.9rem;
-      }
-
-      /* تگ‌های مهارت */
-      .skill-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        margin-top: 1.5rem;
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
       }
 
       .skill-tag {
-        background: rgba(157, 78, 221, 0.1);
-        color: var(--neon-purple);
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        border: 1px solid rgba(157, 78, 221, 0.3);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .skill-tag:hover {
-        background: var(--neon-purple);
-        color: white;
-        transform: scale(1.05);
-      }
-
-      /* تایم‌لاین */
-      .timeline {
-        position: relative;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        right: 30px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: linear-gradient(
-          to bottom,
-          transparent,
-          var(--neon-blue),
-          transparent
-        );
-      }
-
-      .timeline-item {
-        background: var(--glass-bg);
-        border-radius: 15px;
-        padding: 1.8rem;
-        margin-bottom: 2rem;
-        border-right: 4px solid var(--neon-blue);
-        position: relative;
-        margin-right: 60px;
-      }
-
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        right: -40px;
-        top: 30px;
-        width: 20px;
-        height: 20px;
-        background: var(--neon-blue);
-        border-radius: 50%;
-        box-shadow: 0 0 15px var(--neon-blue);
-      }
-
-      /* ایکون‌های کتابخانه‌ها */
-      .library-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-
-      .library-item {
-        text-align: center;
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 15px;
-        transition: all 0.3s ease;
-      }
-
-      .library-item:hover {
-        transform: translateY(-10px);
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 4px;
         background: rgba(0, 212, 255, 0.1);
+        color: var(--neon-blue);
+        font-size: 0.85rem;
+        margin: 5px;
+        border: 1px solid rgba(0, 212, 255, 0.2);
+      }
+
+      .experience-item {
+        border-right: 2px solid var(--neon-purple);
+        padding-right: 25px;
+        position: relative;
+        margin-bottom: 3rem;
+      }
+
+      .experience-item::before {
+        content: "";
+        position: absolute;
+        right: -9px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        background: var(--primary-dark);
+        border: 2px solid var(--neon-purple);
+        border-radius: 50%;
+      }
+
+      .date {
+        color: var(--neon-purple);
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      .neon-btn {
+        padding: 0.8rem 1.8rem;
         border: 1px solid var(--neon-blue);
+        color: var(--neon-blue);
+        text-decoration: none;
+        border-radius: 4px;
+        transition: 0.3s;
+        font-weight: 500;
       }
 
-      .library-icon {
-        font-size: 2.5rem;
-        color: var(--neon-cyan);
-        margin-bottom: 1rem;
+      .neon-btn:hover {
+        background: rgba(0, 212, 255, 0.1);
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
       }
 
-      /* فوتر */
       footer {
+        padding: 40px;
         text-align: center;
-        padding: 3rem;
-        background: rgba(0, 0, 0, 0.3);
-        margin-top: 5rem;
-      }
-
-      .contact-info {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-        flex-wrap: wrap;
-        margin: 2rem 0;
-      }
-
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
+        border-top: 1px solid var(--glass-border);
         color: var(--text-gray);
       }
 
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      .social-link {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        color: var(--neon-blue);
-        font-size: 1.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .social-link:hover {
-        background: var(--neon-blue);
-        color: var(--primary-dark);
-        transform: scale(1.1);
-        box-shadow: 0 0 20px var(--neon-blue);
-      }
-
-      /* انیمیشن‌ها */
-      @keyframes neonPulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.8;
-        }
-      }
-
-      @keyframes lightFlow {
-        0% {
-          background-position: -100% 0;
-        }
-        100% {
-          background-position: 200% 0;
-        }
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .animate {
-        animation: fadeInUp 0.8s ease forwards;
-        opacity: 0;
-      }
-
-      /* واکنش‌گرا */
       @media (max-width: 768px) {
-        .neon-text {
-          font-size: 2.8rem;
+        .nav-links {
+          display: none;
         }
-
-        .section-title {
-          font-size: 2rem;
-        }
-
         section {
-          padding: 4rem 5%;
+          padding: 60px 5%;
         }
-
-        .timeline::before {
-          right: 20px;
-        }
-
-        .timeline-item {
-          margin-right: 40px;
-        }
-
-        .library-grid {
-          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        }
-      }
-
-      /* اسکرول نرم */
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* بارگیری */
-      .loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--primary-dark);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        transition: opacity 0.5s;
-      }
-
-      .loader-content {
-        text-align: center;
-      }
-
-      .loader-text {
-        color: var(--neon-blue);
-        font-size: 1.5rem;
-        margin-top: 1rem;
       }
     </style>
   </head>
   <body>
-    <!-- لودر -->
-    <div class="loader" id="loader">
-      <div class="loader-content">
-        <div
-          class="spinner"
-          style="
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(0, 212, 255, 0.3);
-            border-top-color: var(--neon-blue);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-          "
-        ></div>
-        <div class="loader-text">در حال بارگذاری رزومه...</div>
+    <nav>
+      <div class="logo" style="font-weight: bold; color: var(--neon-blue)">
+        Mohammad Mahdi
       </div>
-    </div>
+      <ul class="nav-links">
+        <li><a href="#about">درباره من</a></li>
+        <li><a href="#skills">مهارت‌ها</a></li>
+        <li><a href="#experience">تجربه</a></li>
+        <li><a href="#projects">پروژه‌ها</a></li>
+        <li><a href="#contact">تماس</a></li>
+      </ul>
+    </nav>
 
-    <!-- شبکه فیبر نوری -->
-    <div class="fiber-network">
-      <div class="fiber-line"></div>
-      <div class="fiber-line"></div>
-      <div class="fiber-line"></div>
-      <div class="fiber-line"></div>
-      <div class="fiber-line"></div>
-    </div>
+    <div class="fiber-network" id="fiber-bg"></div>
 
-    <!-- هدر اصلی -->
-    <header class="hero" id="home">
+    <header class="hero">
       <div class="hero-content">
         <h1 class="neon-text">محمدمهدی خسروی</h1>
-        <h2 class="title">
-          مهندس کامپیوتر | تخصص در مدل‌های زبانی و شبکه‌های عصبی
-        </h2>
+        <h2 class="title">مهندس کامپیوتر | NLP و مدل‌های زبانی</h2>
         <p class="subtitle">
-          فارغ‌التحصیل مهندسی کامپیوتر گرایش هوش مصنوعی. متخصص در توسعه مدل‌های
-          زبانی پیشرفته و شبکه‌های عصبی. ترکیبی از خلاقیت، تحلیل عمیق و دیدگاه
-          فراآکادمیک در حل مسائل پیچیده.
+          توسعه‌دهنده راهکارهای هوشمند با تمرکز بر پردازش زبان طبیعی (NLP) و
+          شبکه‌های عصبی عمیق. فارغ‌التحصیل مهندسی کامپیوتر از دانشگاه صنعتی
+          اصفهان، با سابقه پیاده‌سازی سیستم‌های پیچیده تشخیص ناهنجاری و تحلیل
+          داده‌های بیولوژیک.
         </p>
-
-        <div class="cta-buttons">
-          <a href="#projects" class="neon-btn">
-            <i class="fas fa-code"></i> پروژه‌ها
-          </a>
-          <a href="#experience" class="neon-btn">
-            <i class="fas fa-briefcase"></i> تجربه
-          </a>
-          <a href="#contact" class="neon-btn">
-            <i class="fas fa-paper-plane"></i> تماس
-          </a>
+        <div style="margin-top: 2rem">
+          <a href="#projects" class="neon-btn">مشاهده پروژه‌ها</a>
         </div>
       </div>
     </header>
 
-    <!-- بخش تجربه -->
-    <section id="experience">
-      <div class="section-header">
-        <i class="fas fa-briefcase section-icon"></i>
-        <h2 class="section-title">تجربه کاری</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item animate">
-          <h3 class="card-title">
-            <i class="fas fa-brain"></i> کارآموز تخصصی مدل‌های زبانی (LLM)
-          </h3>
-          <p class="date">شرکت پیام‌پرداز اصفهان | تیر - شهریور ۱۴۰۴</p>
-          <p>
-            طراحی و پیاده‌سازی سیستم تشخیص زودهنگام حملات سایبری با تحلیل
-            لاگ‌های امنیتی
-          </p>
-
-          <div class="progress-container">
-            <div class="progress-label">
-              <span>دقت اولیه</span>
-              <span>دقت نهایی</span>
-            </div>
-            <div class="progress-bar">
-              <div
-                class="progress-fill"
-                id="accuracy-progress"
-                style="width: 96%"
-              ></div>
-            </div>
-            <div class="progress-label">
-              <span>۵۰%</span>
-              <span>۹۶%</span>
-            </div>
-          </div>
-
-          <div class="skill-tags">
-            <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-            <span class="skill-tag"
-              ><i class="fas fa-network-wired"></i> Transformers</span
-            >
-            <span class="skill-tag"
-              ><i class="fas fa-robot"></i> HuggingFace</span
-            >
-            <span class="skill-tag"
-              ><i class="fas fa-chart-line"></i> TAPT/DAPT</span
-            >
-            <span class="skill-tag"
-              ><i class="fas fa-balance-scale"></i> Focal Loss</span
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- بخش پروژه‌ها -->
-    <section id="projects">
-      <div class="section-header">
-        <i class="fas fa-code-branch section-icon"></i>
-        <h2 class="section-title">پروژه‌های برجسته</h2>
-      </div>
-
-      <div class="glass-card animate">
-        <h3 class="card-title">
-          <i class="fas fa-shield-alt"></i> سیستم تشخیص حملات سایبری با LLM
-        </h3>
-        <p>
-          <strong>شرح پروژه:</strong> توسعه مدل طبقه‌بندی متن برای تشخیص
-          زودهنگام حملات امنیتی از لاگ‌های سرور
-        </p>
-        <p>
-          <strong>چالش:</strong> داده‌های نامتوازن (۷۲ کلاس - برخی زیر ۵ نمونه،
-          برخی بالای ۴۰,۰۰۰ نمونه)
-        </p>
-        <p>
-          <strong>روش‌ها:</strong> TAPT/DAPT فاین‌تونیگ، Loss Functions پیشرفته
-          (Focal, LDAM, Contrastive)، EDA، Sample Generation
-        </p>
-        <p><strong>نتایج:</strong> بهبود دقت از ۵۰٪ به ۹۶٪ در داده‌های واقعی</p>
-      </div>
-
-      <div class="glass-card animate">
-        <h3 class="card-title">
-          <i class="fas fa-brain"></i> تحلیل داده‌های fMRI با شبکه‌های عصبی
-          اسپایکی (SNN)
-        </h3>
-        <p>
-          <strong>پروژه کارشناسی ارشد:</strong> دانشگاه صنعتی اصفهان | استاد
-          راهنما: دکتر حمیدرضا حکیم داودی
-        </p>
-        <p><strong>داده‌ها:</strong> پاسخ مغزی ۱۰ انسان به ۱,۱۰۲ ویدیو مختلف</p>
-
-        <div class="progress-container">
-          <div class="progress-label">
-            <span>دقت اولیه</span>
-            <span>دقت نهایی</span>
-          </div>
-          <div class="progress-bar">
-            <div
-              class="progress-fill"
-              id="snn-progress"
-              style="width: 69%"
-            ></div>
-          </div>
-          <div class="progress-label">
-            <span>۳۸%</span>
-            <span>۶۹%</span>
-          </div>
-        </div>
-
-        <p>
-          <strong>نوآوری:</strong> استفاده از LLM برای تحلیل لیبل‌ها، بهینه‌سازی
-          Hyperparameter با Optuna، ترکیب نوروساینس و هوش مصنوعی
-        </p>
-      </div>
-    </section>
-
-    <!-- بخش مهارت‌ها -->
     <section id="skills">
-      <div class="section-header">
-        <i class="fas fa-tools section-icon"></i>
-        <h2 class="section-title">مهارت‌های تخصصی</h2>
-      </div>
-
-      <div class="glass-card animate">
-        <h3 class="card-title">
-          <i class="fas fa-robot"></i> هوش مصنوعی و یادگیری ماشین
-        </h3>
-        <div class="library-grid">
-          <div class="library-item">
-            <i class="fas fa-language library-icon"></i>
-            <div>مدل‌های زبانی</div>
-            <small>BERT, Transformers</small>
-          </div>
-          <div class="library-item">
-            <i class="fas fa-project-diagram library-icon"></i>
-            <div>PyTorch</div>
-            <small>شبکه‌های عصبی</small>
-          </div>
-          <div class="library-item">
-            <i class="fas fa-chart-line library-icon"></i>
-            <div>TensorFlow</div>
-            <small>یادگیری عمیق</small>
-          </div>
-          <div class="library-item">
-            <i class="fas fa-brain library-icon"></i>
-            <div>SNN</div>
-            <small>Norse, snnTorch</small>
-          </div>
-          <div class="library-item">
-            <i class="fas fa-eye library-icon"></i>
-            <div>OpenCV</div>
-            <small>پردازش تصویر</small>
-          </div>
-          <div class="library-item">
-            <i class="fas fa-cogs library-icon"></i>
-            <div>scikit-learn</div>
-            <small>ML کلاسیک</small>
+      <h2 class="section-title">
+        <i class="fas fa-microchip"></i> پشته تکنولوژی (Tech Stack)
+      </h2>
+      <div class="skills-grid">
+        <div class="glass-card">
+          <h3 style="color: var(--neon-cyan); margin-bottom: 1rem">
+            هوش مصنوعی و یادگیری عمیق
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Transformers (HuggingFace)</span>
+            <span class="skill-tag">LLM Fine-tuning</span>
+            <span class="skill-tag">SNN (Spiking Neural Networks)</span>
+            <span class="skill-tag">Optuna (Hyperparameter Tuning)</span>
           </div>
         </div>
-      </div>
-
-      <div class="glass-card animate">
-        <h3 class="card-title"><i class="fas fa-code"></i> برنامه‌نویسی</h3>
-        <div class="skill-tags">
-          <span class="skill-tag"
-            ><i class="fab fa-python"></i> Python پیشرفته</span
-          >
-          <span class="skill-tag"><i class="fas fa-copyright"></i> C++</span>
-          <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
-          <span class="skill-tag"><i class="fab fa-react"></i> React</span>
-          <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
-        </div>
-
-        <h4 class="card-title" style="margin-top: 2rem; font-size: 1.2rem">
-          <i class="fas fa-toolbox"></i> کتابخانه‌های پایتون
-        </h4>
-        <div class="skill-tags">
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">Optuna</span>
-          <span class="skill-tag">Transformers</span>
-          <span class="skill-tag">HuggingFace</span>
-          <span class="skill-tag">Matplotlib</span>
+        <div class="glass-card">
+          <h3 style="color: var(--neon-cyan); margin-bottom: 1rem">
+            برنامه‌نویسی و ابزارها
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python (Advanced)</span>
+            <span class="skill-tag">Linux / Bash</span>
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Scikit-Learn</span>
+            <span class="skill-tag">Docker</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- بخش تحصیلات -->
-    <section id="education">
-      <div class="section-header">
-        <i class="fas fa-graduation-cap section-icon"></i>
-        <h2 class="section-title">تحصیلات</h2>
+    <section id="experience">
+      <h2 class="section-title">
+        <i class="fas fa-briefcase"></i> سوابق حرفه‌ای
+      </h2>
+      <div class="experience-item">
+        <span class="date">تیر ۱۴۰۴ - شهریور ۱۴۰۴</span>
+        <h3>کارآموز متخصص مدل‌های زبانی (LLM)</h3>
+        <p style="color: var(--neon-cyan)">شرکت پیام‌پرداز اصفهان</p>
+        <ul
+          style="margin-top: 1rem; color: var(--text-gray); padding-right: 20px"
+        >
+          <li>
+            طراحی سیستم تشخیص هوشمند حملات سایبری با استفاده از مدل‌های زبانی
+            BERT.
+          </li>
+          <li>
+            پیاده‌سازی متدهای TAPT و DAPT برای انطباق مدل با داده‌های دامنه
+            امنیت.
+          </li>
+          <li>
+            بهبود چشمگیر دقت مدل از ۵۰٪ به ۹۶٪ با استفاده از Focal Loss و
+            Contrastive Learning.
+          </li>
+        </ul>
       </div>
+    </section>
 
-      <div class="glass-card animate">
-        <h3 class="card-title">
-          <i class="fas fa-university"></i> کارشناسی مهندسی کامپیوتر
-        </h3>
-        <p><strong>گرایش:</strong> هوش مصنوعی</p>
-        <p><strong>دانشگاه:</strong> صنعتی اصفهان</p>
-        <p><strong>سال فارغ‌التحصیلی:</strong> ۱۴۰۴</p>
-        <p>
-          <strong>پروژه پایان‌نامه:</strong> تحلیل داده‌های fMRI با شبکه‌های
-          عصبی اسپایکی - ارتقاء دقت از ۳۸٪ به ۶۹٪
+    <section id="projects">
+      <h2 class="section-title">
+        <i class="fas fa-project-diagram"></i> پروژه‌های شاخص
+      </h2>
+      <div class="glass-card">
+        <h3>تحلیل داده‌های fMRI با شبکه‌های عصبی اسپایکی (SNN)</h3>
+        <p style="color: var(--text-gray); margin-top: 10px">
+          پروژه پایان‌نامه کارشناسی با راهنمایی دکتر حکیم داودی. در این پروژه به
+          مدل‌سازی پاسخ‌های مغزی ۱۰ داوطلب به محتوای ویدئویی پرداخته شد. با
+          استفاده از معماری‌های نوین SNN و بهینه‌سازی پارامترها، دقت تشخیص به
+          ۶۹٪ ارتقا یافت.
         </p>
+        <div class="skill-tags" style="margin-top: 15px">
+          <span class="skill-tag">Norse</span>
+          <span class="skill-tag">snnTorch</span>
+          <span class="skill-tag">Neuroscience</span>
+        </div>
       </div>
     </section>
 
-    <!-- بخش تماس -->
     <section id="contact">
-      <div class="section-header">
-        <i class="fas fa-envelope section-icon"></i>
-        <h2 class="section-title">تماس با من</h2>
-      </div>
-
-      <div class="glass-card animate" style="text-align: center">
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-phone" style="color: var(--neon-cyan)"></i>
-            <span>۰۹۱۳۶۴۵۶۹۸۶</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope" style="color: var(--neon-cyan)"></i>
-            <span>mohamad.kho313@gmail.com</span>
-          </div>
-          <div class="contact-item">
-            <i
-              class="fas fa-map-marker-alt"
-              style="color: var(--neon-cyan)"
-            ></i>
-            <span>اصفهان، ایران</span>
-          </div>
-        </div>
-
-        <div class="social-links">
+      <h2 class="section-title">
+        <i class="fas fa-paper-plane"></i> ارتباط با من
+      </h2>
+      <div class="glass-card" style="text-align: center">
+        <p style="margin-bottom: 2rem">
+          آماده همکاری در پروژه‌های تحقیق و توسعه هوش مصنوعی و مدل‌های زبانی
+          هستم.
+        </p>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+          "
+        >
           <a
             href="mailto:mohamad.kho313@gmail.com"
-            class="social-link"
-            title="ایمیل"
+            style="color: var(--text-light); text-decoration: none"
           >
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-envelope" style="color: var(--neon-blue)"></i>
+            mohamad.kho313@gmail.com
           </a>
-          <a href="#" class="social-link" title="گیت‌هاب (به زودی)">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://t.me/numbafk" class="social-link" title="تلگرام">
-            <i class="fab fa-telegram"></i>
-          </a>
-          <a href="#" class="social-link" title="لینکدین (به زودی)">
-            <i class="fab fa-linkedin"></i>
+          <span style="color: var(--text-light)">
+            <i class="fas fa-phone" style="color: var(--neon-blue)"></i>
+            ۰۹۱۳۶۴۵۶۹۸۶
+          </span>
+          <a
+            href="https://t.me/numbafk"
+            style="color: var(--text-light); text-decoration: none"
+          >
+            <i class="fab fa-telegram" style="color: var(--neon-blue)"></i>
+            @numbafk
           </a>
         </div>
-
-        <p style="margin-top: 2rem; color: var(--text-gray)">
-          برای پروژه‌های هوش مصنوعی، مدل‌های زبانی، یا تحقیقات در حوزه یادگیری
-          ماشین آماده همکاری هستم.
-        </p>
       </div>
     </section>
 
     <footer>
-      <p style="color: var(--text-gray); margin-bottom: 1rem">
-        طراحی شده با
-        <i class="fas fa-heart" style="color: var(--neon-purple)"></i> توسط
-        محمدمهدی خسروی
-      </p>
-      <p style="color: var(--text-gray); font-size: 0.9rem">
-        © ۱۴۰۳ - تمامی حقوق محفوظ است | رزومه تعاملی مهندس هوش مصنوعی
-      </p>
+      <p>© ۱۴۰۴ - محمدمهدی خسروی | طراحی شده با رویکرد مدرن مهندسی</p>
     </footer>
 
     <script>
-      // مدیریت لودر
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          document.getElementById("loader").style.opacity = "0";
-          setTimeout(function () {
-            document.getElementById("loader").style.display = "none";
-          }, 500);
-        }, 1000);
-      });
-
-      // انیمیشن اسکرول
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate");
-
-            // انیمیشن مخصوص برای نمودارهای پیشرفت
-            if (entry.target.querySelector(".progress-fill")) {
-              const progressFill = entry.target.querySelector(".progress-fill");
-              const width = progressFill.style.width;
-              progressFill.style.width = "0";
-
-              setTimeout(() => {
-                progressFill.style.transition = "width 1.5s ease";
-                progressFill.style.width = width;
-              }, 300);
-            }
-          }
-        });
-      }, observerOptions);
-
-      // مشاهده تمام عناصر با کلاس animate
-      document
-        .querySelectorAll(".animate")
-        .forEach((el) => observer.observe(el));
-
-      // اسکرول نرم برای لینک‌های داخلی
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
-
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: "smooth",
-            });
-          }
-        });
-      });
-
-      // افکت پارالاکس برای فیبرهای نوری
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const fiberLines = document.querySelectorAll(".fiber-line");
-
-        fiberLines.forEach((line, index) => {
-          const speed = 0.05 * (index + 1);
-          line.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-      });
-
-      // انیمیشن spin برای لودر
-      const style = document.createElement("style");
-      style.textContent = `
-            @keyframes spin {
-                to { transform: rotate(360deg); }
-            }
-        `;
-      document.head.appendChild(style);
-
-      // افکت‌های hover برای کارت‌ها
-      document.querySelectorAll(".glass-card").forEach((card) => {
-        card.addEventListener("mouseenter", function () {
-          this.style.transform = "translateY(-10px)";
-        });
-
-        card.addEventListener("mouseleave", function () {
-          this.style.transform = "translateY(0)";
-        });
-      });
-
-      // نمایش زمان بارگذاری
-      console.log("🎯 رزومه مهندس هوش مصنوعی - محمدمهدی خسروی");
-      console.log("🚀 طراحی شده با HTML, CSS, JavaScript");
-      console.log(
-        "✨ ویژگی‌ها: طراحی نئونی، شبکه فیبر نوری، انیمیشن‌های پیشرفته",
-      );
+      // ایجاد خطوط فیبر نوری به صورت رندوم
+      const bg = document.getElementById("fiber-bg");
+      for (let i = 0; i < 20; i++) {
+        const line = document.createElement("div");
+        line.className = "fiber-line";
+        line.style.left = Math.random() * 100 + "vw";
+        line.style.animationDelay = Math.random() * 4 + "s";
+        line.style.opacity = Math.random();
+        bg.appendChild(line);
+      }
     </script>
   </body>
 </html>
