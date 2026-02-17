@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>محمدمهدی خسروی | مهندس کامپیوتر</title>
+    <title>محمدمهدی خسروی | مهندس هوش مصنوعی و توسعه‌دهنده</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@latest/index.css"
@@ -31,15 +31,12 @@
         box-sizing: border-box;
         font-family: "Vazirmatn", sans-serif;
       }
-
       body {
         background: var(--primary-dark);
         color: var(--text-light);
         line-height: 1.8;
         overflow-x: hidden;
-        background-attachment: fixed;
       }
-
       nav {
         position: fixed;
         top: 0;
@@ -53,24 +50,20 @@
         align-items: center;
         border-bottom: 1px solid var(--glass-border);
       }
-
       .nav-links {
         display: flex;
         gap: 2rem;
         list-style: none;
       }
-
       .nav-links a {
         color: var(--text-gray);
         text-decoration: none;
         font-size: 0.9rem;
         transition: 0.3s;
       }
-
       .nav-links a:hover {
         color: var(--neon-blue);
       }
-
       .fiber-network {
         position: fixed;
         top: 0;
@@ -80,7 +73,6 @@
         z-index: -1;
         opacity: 0.15;
       }
-
       .fiber-line {
         position: absolute;
         background: linear-gradient(
@@ -93,7 +85,6 @@
         height: 150px;
         animation: rain 4s linear infinite;
       }
-
       @keyframes rain {
         0% {
           transform: translateY(-200px);
@@ -107,8 +98,6 @@
           opacity: 0;
         }
       }
-
-      /* بخش Hero */
       .hero {
         min-height: 100vh;
         display: flex;
@@ -117,7 +106,6 @@
         padding: 2rem;
         text-align: center;
       }
-
       .neon-text {
         font-size: clamp(2.5rem, 8vw, 4.5rem);
         font-weight: 900;
@@ -131,25 +119,20 @@
         color: transparent;
         margin-bottom: 1rem;
       }
-
       .title {
         font-size: 1.5rem;
         color: var(--neon-cyan);
         margin-bottom: 1.5rem;
-        letter-spacing: 1px;
       }
-
       .subtitle {
-        max-width: 700px;
+        max-width: 800px;
         color: var(--text-gray);
         margin: 0 auto 3rem;
         font-size: 1.1rem;
       }
-
       section {
         padding: 80px 10%;
       }
-
       .section-title {
         font-size: 2rem;
         margin-bottom: 3rem;
@@ -158,14 +141,12 @@
         gap: 15px;
         color: var(--text-light);
       }
-
       .section-title::after {
         content: "";
         height: 1px;
         flex-grow: 1;
         background: var(--glass-border);
       }
-
       .glass-card {
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
@@ -174,19 +155,16 @@
         transition: 0.4s;
         margin-bottom: 2rem;
       }
-
       .glass-card:hover {
         border-color: var(--neon-blue);
         background: rgba(255, 255, 255, 0.05);
         transform: translateY(-5px);
       }
-
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.5rem;
       }
-
       .skill-tag {
         display: inline-block;
         padding: 5px 12px;
@@ -197,14 +175,12 @@
         margin: 5px;
         border: 1px solid rgba(0, 212, 255, 0.2);
       }
-
       .experience-item {
         border-right: 2px solid var(--neon-purple);
         padding-right: 25px;
         position: relative;
         margin-bottom: 3rem;
       }
-
       .experience-item::before {
         content: "";
         position: absolute;
@@ -216,13 +192,11 @@
         border: 2px solid var(--neon-purple);
         border-radius: 50%;
       }
-
       .date {
         color: var(--neon-purple);
         font-size: 0.9rem;
         font-weight: bold;
       }
-
       .neon-btn {
         padding: 0.8rem 1.8rem;
         border: 1px solid var(--neon-blue);
@@ -232,19 +206,12 @@
         transition: 0.3s;
         font-weight: 500;
       }
-
-      .neon-btn:hover {
-        background: rgba(0, 212, 255, 0.1);
-        box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-      }
-
       footer {
         padding: 40px;
         text-align: center;
         border-top: 1px solid var(--glass-border);
         color: var(--text-gray);
       }
-
       @media (max-width: 768px) {
         .nav-links {
           display: none;
@@ -258,11 +225,12 @@
   <body>
     <nav>
       <div class="logo" style="font-weight: bold; color: var(--neon-blue)">
-        Mohammad Mahdi
+        M.M. KHOSRAVI
       </div>
       <ul class="nav-links">
         <li><a href="#about">درباره من</a></li>
         <li><a href="#skills">مهارت‌ها</a></li>
+        <li><a href="#education">تحصیلات</a></li>
         <li><a href="#experience">تجربه</a></li>
         <li><a href="#projects">پروژه‌ها</a></li>
         <li><a href="#contact">تماس</a></li>
@@ -271,15 +239,15 @@
 
     <div class="fiber-network" id="fiber-bg"></div>
 
-    <header class="hero">
+    <header class="hero" id="about">
       <div class="hero-content">
         <h1 class="neon-text">محمدمهدی خسروی</h1>
-        <h2 class="title">مهندس کامپیوتر | NLP و مدل‌های زبانی</h2>
+        <h2 class="title">مهندس کامپیوتر | هوش مصنوعی و توسعه وب</h2>
         <p class="subtitle">
-          توسعه‌دهنده راهکارهای هوشمند با تمرکز بر پردازش زبان طبیعی (NLP) و
-          شبکه‌های عصبی عمیق. فارغ‌التحصیل مهندسی کامپیوتر از دانشگاه صنعتی
-          اصفهان، با سابقه پیاده‌سازی سیستم‌های پیچیده تشخیص ناهنجاری و تحلیل
-          داده‌های بیولوژیک.
+          مهندس کامپیوتر از دانشگاه صنعتی اصفهان، تمرکز بر پردازش زبان طبیعی
+          (NLP) و شبکه‌های عصبی عمیق. دارای تجربه در توسعه سیستم‌های تحت وب مدرن
+          و پیاده‌سازی پروژه‌های پردازش سیگنال‌های مغزی و امنیت سایبری با رویکرد
+          هوش مصنوعی
         </p>
         <div style="margin-top: 2rem">
           <a href="#projects" class="neon-btn">مشاهده پروژه‌ها</a>
@@ -288,36 +256,61 @@
     </header>
 
     <section id="skills">
-      <h2 class="section-title">
-        <i class="fas fa-microchip"></i> پشته تکنولوژی (Tech Stack)
-      </h2>
+      <h2 class="section-title"><i class="fas fa-microchip"></i> مهارت ها</h2>
       <div class="skills-grid">
         <div class="glass-card">
           <h3 style="color: var(--neon-cyan); margin-bottom: 1rem">
-            هوش مصنوعی و یادگیری عمیق
+            هوش مصنوعی و داده
           </h3>
           <div class="skill-tags">
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">Transformers (HuggingFace)</span>
-            <span class="skill-tag">LLM Fine-tuning</span>
-            <span class="skill-tag">SNN (Spiking Neural Networks)</span>
-            <span class="skill-tag">Optuna (Hyperparameter Tuning)</span>
+            <span class="skill-tag">PyTorch / snnTorch</span>
+            <span class="skill-tag">Transformers (BERT, LLMs)</span>
+            <span class="skill-tag">TAPT / DAPT Fine-tuning</span>
+            <span class="skill-tag">Scikit-Learn</span>
+            <span class="skill-tag">OpenCV (Image Processing)</span>
+            <span class="skill-tag">Pandas / NumPy</span>
+            <span class="skill-tag">Tensorflow</span>
+            <span class="skill-tag">Optuna</span>
           </div>
         </div>
         <div class="glass-card">
           <h3 style="color: var(--neon-cyan); margin-bottom: 1rem">
-            برنامه‌نویسی و ابزارها
+            توسعه نرم‌افزار و سخت‌افزار
           </h3>
           <div class="skill-tags">
-            <span class="skill-tag">Python (Advanced)</span>
-            <span class="skill-tag">Linux / Bash</span>
-            <span class="skill-tag">Git / GitHub</span>
-            <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">Scikit-Learn</span>
-            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Refine / Mantine</span>
+            <span class="skill-tag">Django / FastAPI</span>
+            <span class="skill-tag">SQL / MySQL</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">ARM / AVR Architecture</span>
+            <span class="skill-tag">Linux</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="section-title">
+        <i class="fas fa-graduation-cap"></i> تحصیلات آکادمیک
+      </h2>
+      <div class="glass-card" style="border-right: 3px solid var(--neon-blue)">
+        <h3 style="font-size: 1.4rem">کارشناسی مهندسی کامپیوتر</h3>
+        <p style="color: var(--neon-blue); font-weight: bold">
+          دانشگاه صنعتی اصفهان (IUT)
+        </p>
+        <p class="date">1399 - 1404 (فارغ التحصیل)</p>
+        <p style="margin-top: 15px; color: var(--text-gray)">
+          گرایش هوش مصنوعی
+        </p>
+        <p style="color: var(--text-gray)">
+          استف مسابقات AICUP دانشگاه در دو سال متوالی در بخش گرافیک
+        </p>
+        <p style="color: var(--text-gray)">
+          استف مسابقات ACM دانشگاه در یک سال در بخش گرافیک
+        </p>
       </div>
     </section>
 
@@ -327,22 +320,25 @@
       </h2>
       <div class="experience-item">
         <span class="date">تیر ۱۴۰۴ - شهریور ۱۴۰۴</span>
-        <h3>کارآموز متخصص مدل‌های زبانی (LLM)</h3>
+        <h3>کارآموز تحقیق و توسعه مدل‌های زبانی (LLM)</h3>
         <p style="color: var(--neon-cyan)">شرکت پیام‌پرداز اصفهان</p>
         <ul
           style="margin-top: 1rem; color: var(--text-gray); padding-right: 20px"
         >
           <li>
-            طراحی سیستم تشخیص هوشمند حملات سایبری با استفاده از مدل‌های زبانی
-            BERT.
+            توسعه سیستم تشخیص حملات سایبری بر بستر لاگ‌های امنیتی با دقت ۹۶٪.
           </li>
           <li>
-            پیاده‌سازی متدهای TAPT و DAPT برای انطباق مدل با داده‌های دامنه
-            امنیت.
+            استفاده از TinyBERT/DistilBERT برای تست‌های سریع و BERT-Large برای
+            استخراج نتایج نهایی.
           </li>
           <li>
-            بهبود چشمگیر دقت مدل از ۵۰٪ به ۹۶٪ با استفاده از Focal Loss و
-            Contrastive Learning.
+            غلبه بر چالش دیتای نامتوازن (کلاس‌هایی با ۵ نمونه در برابر ۴۰ هزار
+            نمونه)
+          </li>
+          <li>
+            استفاده از ترکیب روشهای مبتنی بر Loss function, Fune tuning, Data
+            preprocessing
           </li>
         </ul>
       </div>
@@ -353,66 +349,110 @@
         <i class="fas fa-project-diagram"></i> پروژه‌های شاخص
       </h2>
       <div class="glass-card">
-        <h3>تحلیل داده‌های fMRI با شبکه‌های عصبی اسپایکی (SNN)</h3>
+        <h3>پردازش سیگنال‌های fMRI با معماری SNN</h3>
+        <h4 style="margin-top: 10px; color: khaki">در مسیر انتشار مقاله</h4>
         <p style="color: var(--text-gray); margin-top: 10px">
-          پروژه پایان‌نامه کارشناسی با راهنمایی دکتر حکیم داودی. در این پروژه به
-          مدل‌سازی پاسخ‌های مغزی ۱۰ داوطلب به محتوای ویدئویی پرداخته شد. با
-          استفاده از معماری‌های نوین SNN و بهینه‌سازی پارامترها، دقت تشخیص به
-          ۶۹٪ ارتقا یافت.
+          تحلیل پاسخ‌های مغزی به ویدیو با راهنمایی دکتر حکیم داودی. در این پروژه
+          از <strong>LLMها برای خوشه‌بندی معنایی</strong> لیبل‌های ویدیویی
+          استفاده شد تا فاصله معنایی بین کلاس‌ها بیشینه شود. دقت مدل با
+          بهینه‌سازی پارامترها (Optuna) از ۴۸٪ به ۶۹٪ ارتقا یافت.
         </p>
         <div class="skill-tags" style="margin-top: 15px">
           <span class="skill-tag">Norse</span>
           <span class="skill-tag">snnTorch</span>
-          <span class="skill-tag">Neuroscience</span>
+          <span class="skill-tag">LLM Semantic Clustering</span>
+          <span class="skill-tag">Spiking Neural Networks (SNN)</span>
+          <span class="skill-tag">Optuna</span>
+        </div>
+      </div>
+      <div class="glass-card">
+        <h3>دسته بندی و پیش بینی حملات سایبری توسط مدلهای زبانی LLM</h3>
+        <p style="color: var(--text-gray); margin-top: 10px">
+          در این پروژه دیتاستی شامل بیش از 170 هزار داده متنی (لاگ های پردازش
+          شده سیستمی به همراه نوع حمله مرتبط با آن) بود و عدم توازن بسیار سنگینی
+          در داده ها وجود داشت (72 کلاس که برخی کمتر از 5 عضو و یک کلاس بیش از
+          40 هزار عضو) توانستم که با استفاده از روشهای مبتنی بر preprocessing,
+          Loss functions, Fine tuning, ... دقت را از حدود کمتر از 60 درصد به بیش
+          از 96 درصد برسانم.
+        </p>
+        <div class="skill-tags" style="margin-top: 15px">
+          <span class="skill-tag">LLM / Bert Family</span>
+          <span class="skill-tag">TAPT / DAPT</span>
+          <span class="skill-tag">Fine-tuning</span>
+          <span class="skill-tag">Focal loss / CAC Loss / LDAM</span>
+          <span class="skill-tag">EDA / Mix-up</span>
+        </div>
+      </div>
+      <div class="glass-card">
+        <h3>توسعه پلتفرم مدیریتی مدرن</h3>
+        <p style="color: var(--text-gray); margin-top: 10px">
+          طراحی و پیاده‌سازی یک سامانه وب کامل با استفاده از فریم‌ورک‌های
+          <strong>Refine</strong> و <strong>Mantine</strong> در فرانت‌اند و
+          <strong>Django</strong> در بک‌اند، همراه با مدیریت ورژن توسط Git.
+        </p>
+        <div class="skill-tags" style="margin-top: 15px">
+          <span class="skill-tag">Full-Stack Development</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Mantine / Refine</span>
+          <span class="skill-tag">Django / FastAPI</span>
+          <span class="skill-tag">SQL / MySQL</span>
+          <span class="skill-tag">Git</span>
         </div>
       </div>
     </section>
 
     <section id="contact">
       <h2 class="section-title">
-        <i class="fas fa-paper-plane"></i> ارتباط با من
+        <i class="fas fa-paper-plane"></i> ارتباط مستقیم
       </h2>
-      <div class="glass-card" style="text-align: center">
-        <p style="margin-bottom: 2rem">
-          آماده همکاری در پروژه‌های تحقیق و توسعه هوش مصنوعی و مدل‌های زبانی
-          هستم.
-        </p>
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-          "
+      <div class="skills-grid">
+        <a
+          href="mailto:mohamad.kho313@gmail.com"
+          class="glass-card"
+          style="text-align: center; text-decoration: none"
         >
-          <a
-            href="mailto:mohamad.kho313@gmail.com"
-            style="color: var(--text-light); text-decoration: none"
+          <i
+            class="fas fa-envelope fa-2x"
+            style="color: var(--neon-blue); margin-bottom: 1rem"
+          ></i>
+          <p style="color: var(--text-light)">ارسال ایمیل</p>
+          <small style="color: var(--text-gray)"
+            >mohamad.kho313@gmail.com</small
           >
-            <i class="fas fa-envelope" style="color: var(--neon-blue)"></i>
-            mohamad.kho313@gmail.com
-          </a>
-          <span style="color: var(--text-light)">
-            <i class="fas fa-phone" style="color: var(--neon-blue)"></i>
-            ۰۹۱۳۶۴۵۶۹۸۶
-          </span>
-          <a
-            href="https://t.me/numbafk"
-            style="color: var(--text-light); text-decoration: none"
-          >
-            <i class="fab fa-telegram" style="color: var(--neon-blue)"></i>
-            @numbafk
-          </a>
-        </div>
+        </a>
+        <a
+          href="tel:09136456986"
+          class="glass-card"
+          style="text-align: center; text-decoration: none"
+        >
+          <i
+            class="fas fa-phone fa-2x"
+            style="color: var(--neon-cyan); margin-bottom: 1rem"
+          ></i>
+          <p style="color: var(--text-light)">تماس تلفنی</p>
+          <small style="color: var(--text-gray)">۰۹۱۳۶۴۵۶۹۸۶</small>
+        </a>
+        <a
+          href="https://t.me/numbafk"
+          target="_blank"
+          class="glass-card"
+          style="text-align: center; text-decoration: none"
+        >
+          <i
+            class="fab fa-telegram fa-2x"
+            style="color: var(--neon-purple); margin-bottom: 1rem"
+          ></i>
+          <p style="color: var(--text-light)">تلگرام</p>
+          <small style="color: var(--text-gray)">@numbafk</small>
+        </a>
       </div>
     </section>
 
     <footer>
-      <p>© ۱۴۰۴ - محمدمهدی خسروی | طراحی شده با رویکرد مدرن مهندسی</p>
+      <p>© ۱۴۰۴ - طراحی و توسعه: محمدمهدی خسروی | دانشگاه صنعتی اصفهان</p>
     </footer>
 
     <script>
-      // ایجاد خطوط فیبر نوری به صورت رندوم
       const bg = document.getElementById("fiber-bg");
       for (let i = 0; i < 20; i++) {
         const line = document.createElement("div");
